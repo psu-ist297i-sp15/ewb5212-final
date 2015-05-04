@@ -16,7 +16,7 @@ $(document).ready(function() {
       url: "/companies.json",
       success: function(data) {
         for(i=0; i < data.length; i++) {
-          if (data[i].name == $("#company_name").val()) {
+          if (data[i].name == $("#name").val()) {
               $("#name_error").show();
               valid = false
               break;
