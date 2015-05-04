@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501184322) do
+ActiveRecord::Schema.define(version: 20150504130620) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -19,10 +19,7 @@ ActiveRecord::Schema.define(version: 20150501184322) do
     t.string   "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "review_id"
   end
-
-  add_index "companies", ["review_id"], name: "index_companies_on_review_id"
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "pay"
@@ -30,6 +27,9 @@ ActiveRecord::Schema.define(version: 20150501184322) do
     t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "company_id"
   end
+
+  add_index "reviews", ["company_id"], name: "index_reviews_on_company_id"
 
 end
